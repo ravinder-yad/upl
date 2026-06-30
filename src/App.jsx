@@ -5,6 +5,9 @@ import HomePage from './pages/HomePage'
 import Matches from './pages/Matches'
 import Table from './pages/Table'
 import Stats from './pages/Stats'
+import Login from './pages/Login'
+import Register from './pages/Register'
+import Forgot from './pages/Forgot'
 
 function App() {
   return (
@@ -22,6 +25,9 @@ function App() {
             <Route path="/matches" element={<Matches />} />
             <Route path="/table" element={<Table />} />
             <Route path="/stats" element={<Stats />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/forgot" element={<Forgot />} />
           </Routes>
         </div>
       </main>
