@@ -3,6 +3,8 @@ import Navbar from './components/Navbar'
 import BottomNav from './components/BottomNav'
 import HomePage from './pages/HomePage'
 import Matches from './pages/Matches'
+import Table from './pages/Table'
+import Stats from './pages/Stats'
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/matches" element={<Matches />} />
+            <Route path="/table" element={<Table />} />
+            <Route path="/stats" element={<Stats />} />
           </Routes>
         </div>
       </main>
