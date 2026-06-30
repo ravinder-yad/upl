@@ -1,46 +1,53 @@
-import { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Home, Sparkles, AlignJustify, Star, LogIn } from 'lucide-react';
 
 const BottomNav = () => {
-  const [activeTab, setActiveTab] = useState('HOME');
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const navItems = [
     {
       id: 'HOME',
       label: 'HOME',
-      icon: <Home size={22} strokeWidth={2.5} />
+      icon: <Home size={22} strokeWidth={2.5} />,
+      path: '/'
     },
     {
       id: 'MATCHES',
       label: 'MATCHES',
-      icon: <Sparkles size={22} strokeWidth={2.5} />
+      icon: <Sparkles size={22} strokeWidth={2.5} />,
+      path: '/matches'
     },
     {
       id: 'TABLE',
       label: 'TABLE',
-      icon: <AlignJustify size={22} strokeWidth={2.5} />
+      icon: <AlignJustify size={22} strokeWidth={2.5} />,
+      path: '/table'
     },
     {
       id: 'STATS',
       label: 'STATS',
-      icon: <Star size={22} strokeWidth={2.5} />
+      icon: <Star size={22} strokeWidth={2.5} />,
+      path: '/stats'
     },
     {
       id: 'LOGIN',
       label: 'LOGIN',
-      icon: <LogIn size={22} strokeWidth={2.5} />
+      icon: <LogIn size={22} strokeWidth={2.5} />,
+      path: '/login'
     }
   ];
 
   return (
     <div className="fixed bottom-6 left-0 right-0 mx-auto w-[96%] max-w-[650px] bg-white rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-gray-100 flex justify-around items-center h-[64px] z-50">
       {navItems.map((item) => {
-        const isActive = activeTab === item.id;
+        // Simple logic for active tab based on current path
+        const isActive = location.pathname === item.path || (item.path !== '/' && location.pathname.startsWith(item.path));
 
         return (
           <button
             key={item.id}
-            onClick={() => setActiveTab(item.id)}
+            onClick={() => navigate(item.path)}
             className="relative flex flex-col items-center justify-center h-full w-[20%] outline-none group"
           >
             {/* Top Indicator */}

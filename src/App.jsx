@@ -1,6 +1,8 @@
+import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import BottomNav from './components/BottomNav'
 import HomePage from './pages/HomePage'
+import Matches from './pages/Matches'
 
 function App() {
   return (
@@ -13,7 +15,10 @@ function App() {
       <Navbar />
       <main className="w-full max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8">
         <div className="bg-white rounded-[24px] shadow-[0_10px_40px_rgba(0,0,0,0.08)] p-2 md:p-6 mx-auto max-w-[1050px]">
-          <HomePage />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/matches" element={<Matches />} />
+          </Routes>
         </div>
       </main>
       <BottomNav />
