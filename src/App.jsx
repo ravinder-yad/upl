@@ -1,6 +1,6 @@
 import Navbar from './components/Navbar'
 import BottomNav from './components/BottomNav'
-import HomePage from './HomePage'
+import HomePage from './pages/HomePage'
 
 function App() {
   return (
